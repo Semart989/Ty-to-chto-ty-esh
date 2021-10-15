@@ -1,0 +1,48 @@
+    <a href="/logout" style="margin: 5px; color: green">Выйти</a>
+   
+    <a href="/search" style="margin: 5px; color: green">Мои продукты</a>
+    <p>
+      <form id="food" action="/search" method="POST">
+  
+  <div class="mb-3">
+    <label for="exampleInputRequest" class="form-label">Добавить продукт</label>
+    <input type="text" name="request" class="form-control" id="exampleInputRequest">
+  </div>
+ 
+ <button type="submit" class="btn btn-primary">Добавить</button>
+</form>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+  
+<table class="table">
+  <thead>
+    <tr>
+     
+      {{!-- <th scope="col">#</th> --}}
+      <th scope="col">Product name</th>
+      <th scope="col">Protein</th>
+      <th scope="col">Fat</th>
+      <th scope="col">Carbohydrate</th>
+      <th scope="col">Calories</th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each food}}
+    <tr >      
+      {{!-- <th scope="row">{{id}}</th> --}}
+      <td>{{nameFood}}</td>
+      <td>{{protein}}</td>
+      <td>{{fat}}</td>
+      <td>{{carbohydrate}}</td>
+      <td>{{calories}}</td>     
+      <td data-food-id={{id}}>
+        <button type="button" class="btn btn-info deleteButton">Удалить</button>
+      </td>     
+    </tr>
+     {{/each}}
+  </tbody>
+</table>
+
+</div>
